@@ -5,22 +5,22 @@ import { useAuth } from '../../context/AuthContext'
 
 export default function Login() {
 
-    const emailRef = useRef()
-    const passwordRef = useRef()
-    const { login } = useAuth()
-    const [error, setError] = useState('')
-    const [loading, setLoading] = useState(false)
-    const navigate = useNavigate()
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const { login } = useAuth();
+    const [error, setError] = useState('');
+    const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
     
     async function handleSubmit(event){
         event.preventDefault()
         try {
-            setError('')
-            setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value)
-            navigate('/')            
+            setError('');
+            setLoading(true);
+            await login(emailRef.current.value, passwordRef.current.value);
+            navigate('/');         
         } catch {
-            setError('Failed to Login')
+            setError('Failed to Login');
         }
         setLoading(false)
     }
